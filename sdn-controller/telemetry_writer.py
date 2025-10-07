@@ -27,31 +27,65 @@ def init_csv(file: str, header: list[str]) -> None:
 def initialize_all_csv_files() -> None:
     """Initialize all CSV files with proper headers."""
     init_csv(PORT_STATS_FILE, [
-        "ts_utc", "switch_dpid", "port_no",
-        "rx_packets", "tx_packets", "rx_bytes", "tx_bytes",
-        "rx_errors", "tx_errors", "rx_frame_err", "rx_over_err",
-        "rx_crc_err", "collisions", "duration_sec", "duration_nsec"
+        "ts_utc", "switch_dpid",
+        "port_no",
+        "rx_packets",
+        "tx_packets",
+        "rx_bytes",
+        "tx_bytes",
+        "rx_errors",
+        "tx_errors",
+        "rx_frame_err",
+        "rx_over_err",
+        "rx_crc_err",
+        "collisions",
+        "duration_sec",
+        "duration_nsec"
     ])
 
     init_csv(PORT_DESC_FILE, [
-        "ts_utc", "switch_dpid", "port_no", "hw_addr", "name",
-        "config", "state", "curr", "advertised", "supported",
-        "peer", "curr_speed", "max_speed"
+        "ts_utc", "switch_dpid",
+        "port_no",
+        "hw_addr",
+        "name",
+        "config",
+        "state",
+        "curr",
+        "advertised",
+        "supported",
+        "peer",
+        "curr_speed",
+        "max_speed"
     ])
 
     init_csv(FLOW_STATS_FILE, [
-        "ts_utc", "switch_dpid", "table_id", "duration_sec", "duration_nsec",
-        "idle_timeout", "hard_timeout", "flags", "cookie",
-        "packet_count", "byte_count", "priority", "match", "instructions", "length"
+        "ts_utc", "switch_dpid",
+        "table_id",
+        "duration_sec",
+        "duration_nsec",
+        "priority",
+        "idle_timeout",
+        "hard_timeout",
+        "flags",
+        "cookie",
+        "packet_count",
+        "byte_count",
+        "match",
+        "instructions"
     ])
 
     init_csv(TABLE_STATS_FILE, [
-        "ts_utc", "switch_dpid", "table_id",
-        "active_count", "lookup_count", "matched_count"
+        "ts_utc", "switch_dpid",
+        "table_id",
+        "active_count",
+        "lookup_count",
+        "matched_count"
     ])
 
     init_csv(EVENTS_FILE, [
-        "ts_utc", "switch_dpid", "event_type", "details"
+        "ts_utc", "switch_dpid",
+        "event_type",
+        "details"
     ])
 
 
@@ -62,11 +96,22 @@ def write_port_stats(dpid: int, stats: list[Any]) -> None:
         writer = csv.writer(f)
         for stat in stats:
             writer.writerow([
-                ts, dpid, stat.port_no,
-                stat.rx_packets, stat.tx_packets, stat.rx_bytes, stat.tx_bytes,
-                stat.rx_errors, stat.tx_errors, stat.rx_frame_err, stat.rx_over_err,
-                stat.rx_crc_err, stat.collisions,
-                getattr(stat, "duration_sec", ""), getattr(stat, "duration_nsec", "")
+                ts, dpid,
+                stat.port_no,
+                stat.rx_packets,
+                stat.tx_packets,
+                stat.rx_bytes,
+                stat.tx_bytes,
+                stat.rx_dropped,
+                stat.tx_dropped,
+                stat.rx_errors,
+                stat.tx_errors,
+                stat.rx_frame_err,
+                stat.rx_over_err,
+                stat.rx_crc_err,
+                stat.collisions,
+                getattr(stat, "duration_sec", ""),
+                getattr(stat, "duration_nsec", "")
             ])
 
 
@@ -77,9 +122,18 @@ def write_port_desc(dpid: int, ports: list[Any]) -> None:
         writer = csv.writer(f)
         for p in ports:
             writer.writerow([
-                ts, dpid, p.port_no, p.hw_addr, p.name,
-                p.config, p.state, p.curr, p.advertised, p.supported,
-                p.peer, p.curr_speed, p.max_speed
+                ts, dpid,
+                p.port_no,
+                p.hw_addr,
+                p.name,
+                p.config,
+                p.state,
+                p.curr,
+                p.advertised,
+                p.supported,
+                p.peer,
+                p.curr_speed,
+                p.max_speed
             ])
 
 
@@ -89,12 +143,24 @@ def write_flow_stats(dpid: int, stats: list[Any]) -> None:
     with open(FLOW_STATS_FILE, "a", newline="") as f:
         writer = csv.writer(f)
         for stat in stats:
+            # if stat.packet_count > 0 and stat.priority > 0: # active flows only, ignore table-miss flow (priority 0)
+            # Controller flow was moved to separate table with priority 0, so if the metrics rise above 0,
+            # it means that the traffic goes to controller.
+            # It would be beneficial for ML when the metrics for controller flow rise quickly
+            # (a lot of unrecognized traffic)
             writer.writerow([
                 ts, dpid, stat.table_id,
-                getattr(stat, "duration_sec", ""), getattr(stat, "duration_nsec", ""),
-                stat.idle_timeout, stat.hard_timeout, stat.flags, stat.cookie,
-                stat.packet_count, stat.byte_count, stat.priority,
-                str(stat.match), str(stat.instructions), stat.length
+                getattr(stat, "duration_sec", ""),
+                getattr(stat, "duration_nsec", ""),
+                stat.priority,
+                stat.idle_timeout,
+                stat.hard_timeout,
+                stat.flags,
+                stat.cookie,
+                stat.packet_count,
+                stat.byte_count,
+                str(stat.match),
+                str(stat.instructions)
             ])
 
 
@@ -104,17 +170,23 @@ def write_table_stats(dpid: int, stats: list[Any]) -> None:
     with open(TABLE_STATS_FILE, "a", newline="") as f:
         writer = csv.writer(f)
         for stat in stats:
-            writer.writerow([
-                ts, dpid, stat.table_id,
-                stat.active_count, stat.lookup_count, stat.matched_count
-            ])
+            if stat.active_count > 0 or stat.lookup_count > 0 or stat.matched_count > 0:  # active tables only
+                writer.writerow([
+                    ts, dpid,
+                    stat.table_id,
+                    stat.active_count,
+                    stat.lookup_count,
+                    stat.matched_count
+                ])
 
 
 def log_event(dpid: int, event_type: str, details: str) -> None:
     """Log an event to the events CSV file."""
     ts: float = time()
     with open(EVENTS_FILE, "a", newline="") as f:
-        csv.writer(f).writerow([ts, dpid, event_type, details])
+        csv.writer(f).writerow([ts, dpid,
+                                event_type,
+                                details])
 
 
 # Initialize all CSV files when module is imported
