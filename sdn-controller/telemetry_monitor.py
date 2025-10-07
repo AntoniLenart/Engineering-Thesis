@@ -2,6 +2,8 @@ from ryu.controller import ofp_event
 from ryu.controller.handler import MAIN_DISPATCHER, set_ev_cls
 from ryu.lib import hub
 from typing import Any, Dict
+from ryu.ofproto.ofproto_v1_3 import (OFPRR_IDLE_TIMEOUT, OFPRR_HARD_TIMEOUT, OFPRR_DELETE, OFPRR_GROUP_DELETE,
+                                      OFPPR_ADD, OFPPR_DELETE, OFPPR_MODIFY)
 
 import telemetry_writer
 
@@ -66,11 +68,29 @@ class TelemetryMonitor:
     def flow_removed_handler(ev: ofp_event.EventOFPFlowRemoved) -> None:
         """Handle flow removed events."""
         dpid: int = ev.msg.datapath.id
-        stat = ev.msg
-        details: str = (f"priority={stat.priority}, match={stat.match}, "
-                        f"duration_sec={getattr(stat, 'duration_sec', '')}, "
-                        f"packet_count={stat.packet_count}, byte_count={stat.byte_count}, "
-                        f"reason={stat.reason}")
+        msg = ev.msg
+
+        if msg.reason == OFPRR_IDLE_TIMEOUT:
+            reason = 'IDLE TIMEOUT'
+        elif msg.reason == OFPRR_HARD_TIMEOUT:
+            reason = 'HARD TIMEOUT'
+        elif msg.reason == OFPRR_DELETE:
+            reason = 'DELETE'
+        elif msg.reason == OFPRR_GROUP_DELETE:
+            reason = 'GROUP DELETE'
+        else:
+            reason = 'unknown'
+
+        details: str = (f"cookie={msg.cookie}, "
+                        f"priority={msg.priority}, "
+                        f"reason={reason}, "
+                        f"duration_sec={getattr(msg, 'duration_sec', '')}, "
+                        f"duration_nsec={getattr(msg, 'duration_nsec', '')}, "
+                        f"idle_timeout={msg.idle_timeout}, "
+                        f"hard_timeout={msg.hard_timeout}, "
+                        f"packet_count={msg.packet_count}, "
+                        f"byte_count={msg.byte_count}, "
+                        f"match={str(msg.match)}, ")
         telemetry_writer.log_event(dpid, "flow_removed", details)
 
     @staticmethod
@@ -78,8 +98,25 @@ class TelemetryMonitor:
     def port_status_handler(ev: ofp_event.EventOFPPortStatus) -> None:
         """Handle port status change events."""
         dpid: int = ev.msg.datapath.id
-        reason: int = ev.msg.reason
+        msg = ev.msg
+        if msg.reason == OFPPR_ADD:
+            reason = 'ADD'
+        elif msg.reason == OFPPR_DELETE:
+            reason = 'DELETE'
+        elif msg.reason == OFPPR_MODIFY:
+            reason = 'MODIFY'
+        else:
+            reason = 'unknown'
         desc = ev.msg.desc
-        details: str = (f"reason={reason}, port_no={desc.port_no}, hw_addr={desc.hw_addr}, "
-                        f"config={desc.config}, state={desc.state}")
+        details: str = (f"reason={reason}, "
+                        f"advertised={desc.advertised}, "
+                        f"curr={desc.curr}, "
+                        f"curr_speed={desc.curr_speed}, "
+                        f"hw_addr={desc.hw_addr}, "
+                        f"max_speed={desc.max_speed}, "
+                        f"name={desc.name}, "
+                        f"peer={desc.peer}, "
+                        f"port_no={desc.port_no}, "
+                        f"state={desc.state}, "
+                        f"supported={desc.supported}")
         telemetry_writer.log_event(dpid, "port_status", details)
