@@ -155,11 +155,11 @@ class LearningSwitch:
                         f"table_id={msg.table_id}, "
                         f"cookie={msg.cookie}, "
                         f"match={msg.match}, "
-                        f"msg_data={hex_array(msg.data) if msg.data else 'N/A'}, "
+                        f"msg_data={hex_array(msg.data) if msg.data else None}, "
                         f"in_port={in_port}, "
                         f"dst={dst}, "
                         f"src={src}, "
-                        f"tcp_flags={tcp_flag_counts if tcp_pkt else 'N/A'}")
+                        f"tcp_flags={tcp_flag_counts if tcp_pkt else None}")
 
         # Log event
         telemetry_writer.log_event(dpid=dpid,
