@@ -32,7 +32,6 @@ class SimpleSwitchFullTelemetry(app_manager.RyuApp):
         dp = ev.datapath
         if ev.state == MAIN_DISPATCHER:
             self.datapaths[dp.id] = dp
-            # Request port description once when switch connects
         elif ev.state == DEAD_DISPATCHER:
             self.datapaths.pop(dp.id, None)
 
