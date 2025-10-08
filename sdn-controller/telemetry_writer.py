@@ -33,6 +33,8 @@ def initialize_all_csv_files() -> None:
         "tx_packets",
         "rx_bytes",
         "tx_bytes",
+        "rx_dropped",
+        "tx_dropped",
         "rx_errors",
         "tx_errors",
         "rx_frame_err",
