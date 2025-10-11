@@ -1,13 +1,13 @@
 import csv
 from os.path import join, exists
 from os import makedirs
-from time import time
+from time import ctime
 from typing import Any
 import datetime
 
 
 OUTPUT_DIR: str = f"telemetry{datetime.datetime.utcnow().strftime('%Y%m%d_%H%M%S')}"
-# CSV file paths
+
 PORT_STATS_FILE: str = join(OUTPUT_DIR, "port_stats.csv")
 PORT_DESC_FILE: str = join(OUTPUT_DIR, "port_desc.csv")
 FLOW_STATS_FILE: str = join(OUTPUT_DIR, "flow_stats.csv")
@@ -27,7 +27,8 @@ def init_csv(file: str, header: list[str]) -> None:
 def initialize_all_csv_files() -> None:
     """Initialize all CSV files with proper headers."""
     init_csv(PORT_STATS_FILE, [
-        "ts_utc", "switch_dpid",
+        "ts",
+        "switch_dpid",
         "port_no",
         "rx_packets",
         "tx_packets",
@@ -46,7 +47,8 @@ def initialize_all_csv_files() -> None:
     ])
 
     init_csv(PORT_DESC_FILE, [
-        "ts_utc", "switch_dpid",
+        "ts",
+        "switch_dpid",
         "port_no",
         "hw_addr",
         "name",
@@ -61,7 +63,8 @@ def initialize_all_csv_files() -> None:
     ])
 
     init_csv(FLOW_STATS_FILE, [
-        "ts_utc", "switch_dpid",
+        "ts",
+        "switch_dpid",
         "table_id",
         "duration_sec",
         "duration_nsec",
@@ -77,7 +80,8 @@ def initialize_all_csv_files() -> None:
     ])
 
     init_csv(TABLE_STATS_FILE, [
-        "ts_utc", "switch_dpid",
+        "ts",
+        "switch_dpid",
         "table_id",
         "active_count",
         "lookup_count",
@@ -85,7 +89,8 @@ def initialize_all_csv_files() -> None:
     ])
 
     init_csv(EVENTS_FILE, [
-        "ts_utc", "switch_dpid",
+        "ts",
+        "switch_dpid",
         "event_type",
         "details"
     ])
@@ -93,12 +98,13 @@ def initialize_all_csv_files() -> None:
 
 def write_port_stats(dpid: int, stats: list[Any]) -> None:
     """Write port statistics to CSV."""
-    ts: float = time()
+    ts: str = ctime()
     with open(PORT_STATS_FILE, "a", newline="") as f:
         writer = csv.writer(f)
         for stat in stats:
             writer.writerow([
-                ts, dpid,
+                ts,
+                dpid,
                 stat.port_no,
                 stat.rx_packets,
                 stat.tx_packets,
@@ -119,12 +125,13 @@ def write_port_stats(dpid: int, stats: list[Any]) -> None:
 
 def write_port_desc(dpid: int, ports: list[Any]) -> None:
     """Write port description to CSV."""
-    ts: float = time()
+    ts: str = ctime()
     with open(PORT_DESC_FILE, "a", newline="") as f:
         writer = csv.writer(f)
         for p in ports:
             writer.writerow([
-                ts, dpid,
+                ts,
+                dpid,
                 p.port_no,
                 p.hw_addr,
                 p.name,
@@ -141,7 +148,7 @@ def write_port_desc(dpid: int, ports: list[Any]) -> None:
 
 def write_flow_stats(dpid: int, stats: list[Any]) -> None:
     """Write flow statistics to CSV."""
-    ts: float = time()
+    ts: str = ctime()
     with open(FLOW_STATS_FILE, "a", newline="") as f:
         writer = csv.writer(f)
         for stat in stats:
@@ -151,7 +158,9 @@ def write_flow_stats(dpid: int, stats: list[Any]) -> None:
             # It would be beneficial for ML when the metrics for controller flow rise quickly
             # (a lot of unrecognized traffic)
             writer.writerow([
-                ts, dpid, stat.table_id,
+                ts,
+                dpid,
+                stat.table_id,
                 getattr(stat, "duration_sec", ""),
                 getattr(stat, "duration_nsec", ""),
                 stat.priority,
@@ -168,13 +177,14 @@ def write_flow_stats(dpid: int, stats: list[Any]) -> None:
 
 def write_table_stats(dpid: int, stats: list[Any]) -> None:
     """Write table statistics to CSV."""
-    ts: float = time()
+    ts: str = ctime()
     with open(TABLE_STATS_FILE, "a", newline="") as f:
         writer = csv.writer(f)
         for stat in stats:
             if stat.active_count > 0 or stat.lookup_count > 0 or stat.matched_count > 0:  # active tables only
                 writer.writerow([
-                    ts, dpid,
+                    ts,
+                    dpid,
                     stat.table_id,
                     stat.active_count,
                     stat.lookup_count,
@@ -184,7 +194,7 @@ def write_table_stats(dpid: int, stats: list[Any]) -> None:
 
 def log_event(dpid: int, event_type: str, details: str) -> None:
     """Log an event to the events CSV file."""
-    ts: float = time()
+    ts: str = ctime()
     with open(EVENTS_FILE, "a", newline="") as f:
         csv.writer(f).writerow([ts, dpid,
                                 event_type,
