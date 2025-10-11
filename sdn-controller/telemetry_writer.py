@@ -3,10 +3,10 @@ from os.path import join, exists
 from os import makedirs
 from time import time
 from typing import Any
+import datetime
 
 
-OUTPUT_DIR: str = "telemetry"
-
+OUTPUT_DIR: str = f"telemetry{datetime.datetime.utcnow().strftime('%Y%m%d_%H%M%S')}"
 # CSV file paths
 PORT_STATS_FILE: str = join(OUTPUT_DIR, "port_stats.csv")
 PORT_DESC_FILE: str = join(OUTPUT_DIR, "port_desc.csv")
