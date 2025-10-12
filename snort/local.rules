@@ -1,0 +1,5 @@
+# per-source SYN flood threshold (non-spoofed)
+alert tcp any any -> $HOME_NET any (msg:"Possible SYN flood - many SYNs by src"; flags:S; threshold: type threshold, track by_src, count 10, seconds 5; sid:1000001; rev:2; classtype:attempted-dos;)
+
+# per-destination aggregate SYN flood (catches spoofed/distributed sources)
+alert tcp any any -> $HOME_NET any (msg:"Possible SYN flood - many SYNs to dst"; flags:S; threshold: type threshold, track by_dst, count 50, seconds 5; sid:1000002; rev:1; classtype:attempted-dos;)
