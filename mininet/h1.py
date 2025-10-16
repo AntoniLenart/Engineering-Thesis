@@ -289,7 +289,7 @@ def regular_traffic_window(target, log_file=None):
             log_message("Error in traffic generation: {0}".format(e), log_file)
 
         # Random sleep between operations and log it
-        sleep_time = random.uniform(0.5, 3.0)
+        sleep_time = random.uniform(0, 1.0)
         log_message("REGULAR: sleeping for {:.2f}s".format(sleep_time), log_file)
         time.sleep(sleep_time)
 
@@ -330,12 +330,12 @@ def main():
                         help='Attack probability (default: 0.1 = 10%%)')
     parser.add_argument('--min-sleep',
                         type=float,
-                        default=0.5,
+                        default=0,
                         help='Minimum sleep time between windows in seconds (default: 0.5)')
     parser.add_argument('--max-sleep',
                         type=float,
-                        default=3.0,
-                        help='Maximum sleep time between windows in seconds (default: 3.0)')
+                        default=1,
+                        help='Maximum sleep time between windows in seconds (default: 1.0)')
 
     args = parser.parse_args()
 
