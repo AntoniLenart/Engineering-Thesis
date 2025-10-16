@@ -7,7 +7,7 @@ from ryu.utils import hex_array
 
 import telemetry_writer
 
-IDLE_TIMEOUT: int = 5
+IDLE_TIMEOUT: int = 2
 HARD_TIMEOUT: int = 0
 
 
