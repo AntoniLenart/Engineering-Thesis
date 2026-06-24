@@ -1,0 +1,1002 @@
+=== INFORMACJE O DATASECIE ===
+Liczba próbek: 3354
+Rozk³ad wartoœci w kolumnie 'attack':
+attack
+1    1771
+0    1583
+Name: count, dtype: int64
+
+=== GRANICE ATAKÓW SYN ===
+Liczba pocz¹tków ataków SYN: 10
+Liczba koñców ataków SYN: 10
+
+=== SZCZEGÓ£Y ATAKÓW SYN ===
+
+============================================================
+ATAK SYN #1:
+============================================================
+  Indeksy: 0 - 96 (d³ugoœæ: 97 próbek = 970 sekund)
+  Timestamp start: 2025-10-17 15:25:46
+  Timestamp end: 2025-10-17 15:27:43
+
+  --- PRÓBKI PRZED ATAKIEM ---
+
+  --- PIERWSZA PRÓBKA ATAKU ---
+
+  Próbka [0] (pocz¹tek ataku):
+    Timestamp: 2025-10-17 15:25:46
+    Attack: 1
+    total_flows_10s: 4
+    no_of_total_flows: 4
+    table_active_count_mean: 1.00
+    flow_packet_count_mean: 17.00
+    no_of_tcp_flows: 0
+
+  --- OSTATNIA PRÓBKA ATAKU ---
+
+  Próbka [96] (koniec ataku):
+    Timestamp: 2025-10-17 15:27:43
+    Attack: 1
+    total_flows_10s: 9701
+    no_of_total_flows: 801
+    table_active_count_mean: 400.50
+    flow_packet_count_mean: 106.46
+    no_of_tcp_flows: 799
+
+  --- PRÓBKI PO ATAKU (HIPOTEZA IDLE_TIMEOUT) ---
+
+  Próbka [97] (1 próbek po koñcu ataku, +10s):
+    Timestamp: 2025-10-17 15:27:45
+    Attack: 1
+    SYN flag: 0
+    total_flows_10s: 7998
+    no_of_total_flows: 1304
+    table_active_count_mean: 326.00
+    flow_packet_count_mean: 132.03
+    no_of_tcp_flows: 1300
+    [!] UWAGA: Wysoka wartosc total_flows_10s po zakonczeniu ataku!
+    [!] UWAGA: Wysoka wartosc table_active_count_mean - mozliwy efekt idle_timeout!
+    [!] UWAGA: Wysoka liczba przeplywow TCP po zakonczeniu ataku SYN!
+
+  Próbka [98] (2 próbek po koñcu ataku, +20s):
+    Timestamp: 2025-10-17 15:27:46
+    Attack: 1
+    SYN flag: 0
+    total_flows_10s: 7646
+    no_of_total_flows: 403
+    table_active_count_mean: 201.50
+    flow_packet_count_mean: 213.67
+    no_of_tcp_flows: 401
+    [!] UWAGA: Wysoka wartosc total_flows_10s po zakonczeniu ataku!
+    [!] UWAGA: Wysoka wartosc table_active_count_mean - mozliwy efekt idle_timeout!
+    [!] UWAGA: Wysoka liczba przeplywow TCP po zakonczeniu ataku SYN!
+
+  Próbka [99] (3 próbek po koñcu ataku, +30s):
+    Timestamp: 2025-10-17 15:27:47
+    Attack: 1
+    SYN flag: 0
+    total_flows_10s: 7831
+    no_of_total_flows: 666
+    table_active_count_mean: 333.00
+    flow_packet_count_mean: 132.06
+    no_of_tcp_flows: 664
+    [!] UWAGA: Wysoka wartosc total_flows_10s po zakonczeniu ataku!
+    [!] UWAGA: Wysoka wartosc table_active_count_mean - mozliwy efekt idle_timeout!
+    [!] UWAGA: Wysoka liczba przeplywow TCP po zakonczeniu ataku SYN!
+
+============================================================
+ATAK SYN #2:
+============================================================
+  Indeksy: 260 - 311 (d³ugoœæ: 52 próbek = 520 sekund)
+  Timestamp start: 2025-10-17 15:30:37
+  Timestamp end: 2025-10-17 15:31:36
+
+  --- PRÓBKI PRZED ATAKIEM ---
+
+  Próbka [257] (3 próbek przed pocz¹tkiem ataku, -30s):
+    Timestamp: 2025-10-17 15:30:33
+    Attack: 0
+    SYN flag: 0
+    total_flows_10s: 273
+    no_of_total_flows: 19
+    table_active_count_mean: 9.50
+    flow_packet_count_mean: 8598.53
+    no_of_tcp_flows: 17
+
+  Próbka [258] (2 próbek przed pocz¹tkiem ataku, -20s):
+    Timestamp: 2025-10-17 15:30:34
+    Attack: 0
+    SYN flag: 0
+    total_flows_10s: 267
+    no_of_total_flows: 22
+    table_active_count_mean: 11.00
+    flow_packet_count_mean: 7427.27
+    no_of_tcp_flows: 20
+
+  Próbka [259] (1 próbek przed pocz¹tkiem ataku, -10s):
+    Timestamp: 2025-10-17 15:30:35
+    Attack: 0
+    SYN flag: 0
+    total_flows_10s: 251
+    no_of_total_flows: 18
+    table_active_count_mean: 9.00
+    flow_packet_count_mean: 9077.22
+    no_of_tcp_flows: 16
+
+  --- PIERWSZA PRÓBKA ATAKU ---
+
+  Próbka [260] (pocz¹tek ataku):
+    Timestamp: 2025-10-17 15:30:37
+    Attack: 1
+    total_flows_10s: 290
+    no_of_total_flows: 75
+    table_active_count_mean: 37.50
+    flow_packet_count_mean: 2181.35
+    no_of_tcp_flows: 73
+
+  --- OSTATNIA PRÓBKA ATAKU ---
+
+  Próbka [311] (koniec ataku):
+    Timestamp: 2025-10-17 15:31:36
+    Attack: 1
+    total_flows_10s: 9647
+    no_of_total_flows: 501
+    table_active_count_mean: 250.50
+    flow_packet_count_mean: 420.40
+    no_of_tcp_flows: 499
+
+  --- PRÓBKI PO ATAKU (HIPOTEZA IDLE_TIMEOUT) ---
+
+  Próbka [312] (1 próbek po koñcu ataku, +10s):
+    Timestamp: 2025-10-17 15:31:37
+    Attack: 0
+    SYN flag: 0
+    total_flows_10s: 8785
+    no_of_total_flows: 297
+    table_active_count_mean: 148.50
+    flow_packet_count_mean: 714.73
+    no_of_tcp_flows: 295
+    [!] UWAGA: Wysoka wartosc total_flows_10s po zakonczeniu ataku!
+    [!] UWAGA: Wysoka wartosc table_active_count_mean - mozliwy efekt idle_timeout!
+    [!] UWAGA: Wysoka liczba przeplywow TCP po zakonczeniu ataku SYN!
+
+  Próbka [313] (2 próbek po koñcu ataku, +20s):
+    Timestamp: 2025-10-17 15:31:38
+    Attack: 0
+    SYN flag: 0
+    total_flows_10s: 10011
+    no_of_total_flows: 1226
+    table_active_count_mean: 613.50
+    flow_packet_count_mean: 174.64
+    no_of_tcp_flows: 1223
+    [!] UWAGA: Wysoka wartosc total_flows_10s po zakonczeniu ataku!
+    [!] UWAGA: Wysoka wartosc table_active_count_mean - mozliwy efekt idle_timeout!
+    [!] UWAGA: Wysoka liczba przeplywow TCP po zakonczeniu ataku SYN!
+
+  Próbka [314] (3 próbek po koñcu ataku, +30s):
+    Timestamp: 2025-10-17 15:31:39
+    Attack: 0
+    SYN flag: 0
+    total_flows_10s: 10629
+    no_of_total_flows: 1506
+    table_active_count_mean: 753.00
+    flow_packet_count_mean: 142.19
+    no_of_tcp_flows: 1502
+    [!] UWAGA: Wysoka wartosc total_flows_10s po zakonczeniu ataku!
+    [!] UWAGA: Wysoka wartosc table_active_count_mean - mozliwy efekt idle_timeout!
+    [!] UWAGA: Wysoka liczba przeplywow TCP po zakonczeniu ataku SYN!
+
+============================================================
+ATAK SYN #3:
+============================================================
+  Indeksy: 397 - 443 (d³ugoœæ: 47 próbek = 470 sekund)
+  Timestamp start: 2025-10-17 15:33:02
+  Timestamp end: 2025-10-17 15:33:50
+
+  --- PRÓBKI PRZED ATAKIEM ---
+
+  Próbka [394] (3 próbek przed pocz¹tkiem ataku, -30s):
+    Timestamp: 2025-10-17 15:32:59
+    Attack: 0
+    SYN flag: 0
+    total_flows_10s: 44
+    no_of_total_flows: 4
+    table_active_count_mean: 2.00
+    flow_packet_count_mean: 55932.00
+    no_of_tcp_flows: 0
+
+  Próbka [395] (2 próbek przed pocz¹tkiem ataku, -20s):
+    Timestamp: 2025-10-17 15:33:00
+    Attack: 0
+    SYN flag: 0
+    total_flows_10s: 44
+    no_of_total_flows: 4
+    table_active_count_mean: 2.00
+    flow_packet_count_mean: 56126.75
+    no_of_tcp_flows: 0
+
+  Próbka [396] (1 próbek przed pocz¹tkiem ataku, -10s):
+    Timestamp: 2025-10-17 15:33:01
+    Attack: 0
+    SYN flag: 0
+    total_flows_10s: 42
+    no_of_total_flows: 4
+    table_active_count_mean: 2.00
+    flow_packet_count_mean: 56306.25
+    no_of_tcp_flows: 0
+
+  --- PIERWSZA PRÓBKA ATAKU ---
+
+  Próbka [397] (pocz¹tek ataku):
+    Timestamp: 2025-10-17 15:33:02
+    Attack: 1
+    total_flows_10s: 42
+    no_of_total_flows: 6
+    table_active_count_mean: 3.00
+    flow_packet_count_mean: 37646.33
+    no_of_tcp_flows: 0
+
+  --- OSTATNIA PRÓBKA ATAKU ---
+
+  Próbka [443] (koniec ataku):
+    Timestamp: 2025-10-17 15:33:50
+    Attack: 1
+    total_flows_10s: 7491
+    no_of_total_flows: 522
+    table_active_count_mean: 0.00
+    flow_packet_count_mean: 486.11
+    no_of_tcp_flows: 520
+
+  --- PRÓBKI PO ATAKU (HIPOTEZA IDLE_TIMEOUT) ---
+
+  Próbka [444] (1 próbek po koñcu ataku, +10s):
+    Timestamp: 2025-10-17 15:33:51
+    Attack: 0
+    SYN flag: 0
+    total_flows_10s: 6597
+    no_of_total_flows: 0
+    table_active_count_mean: 261.00
+    flow_packet_count_mean: 0.00
+    no_of_tcp_flows: 0
+    [!] UWAGA: Wysoka wartosc total_flows_10s po zakonczeniu ataku!
+    [!] UWAGA: Wysoka wartosc table_active_count_mean - mozliwy efekt idle_timeout!
+
+  Próbka [445] (2 próbek po koñcu ataku, +20s):
+    Timestamp: 2025-10-17 15:33:52
+    Attack: 0
+    SYN flag: 0
+    total_flows_10s: 7210
+    no_of_total_flows: 1235
+    table_active_count_mean: 618.00
+    flow_packet_count_mean: 207.40
+    no_of_tcp_flows: 1233
+    [!] UWAGA: Wysoka wartosc total_flows_10s po zakonczeniu ataku!
+    [!] UWAGA: Wysoka wartosc table_active_count_mean - mozliwy efekt idle_timeout!
+    [!] UWAGA: Wysoka liczba przeplywow TCP po zakonczeniu ataku SYN!
+
+  Próbka [446] (3 próbek po koñcu ataku, +30s):
+    Timestamp: 2025-10-17 15:33:53
+    Attack: 0
+    SYN flag: 0
+    total_flows_10s: 8036
+    no_of_total_flows: 1476
+    table_active_count_mean: 738.00
+    flow_packet_count_mean: 174.34
+    no_of_tcp_flows: 1474
+    [!] UWAGA: Wysoka wartosc total_flows_10s po zakonczeniu ataku!
+    [!] UWAGA: Wysoka wartosc table_active_count_mean - mozliwy efekt idle_timeout!
+    [!] UWAGA: Wysoka liczba przeplywow TCP po zakonczeniu ataku SYN!
+
+============================================================
+ATAK SYN #4:
+============================================================
+  Indeksy: 1187 - 1261 (d³ugoœæ: 75 próbek = 750 sekund)
+  Timestamp start: 2025-10-17 15:46:38
+  Timestamp end: 2025-10-17 15:48:22
+
+  --- PRÓBKI PRZED ATAKIEM ---
+
+  Próbka [1184] (3 próbek przed pocz¹tkiem ataku, -30s):
+    Timestamp: 2025-10-17 15:46:35
+    Attack: 0
+    SYN flag: 0
+    total_flows_10s: 45
+    no_of_total_flows: 4
+    table_active_count_mean: 2.00
+    flow_packet_count_mean: 128348.75
+    no_of_tcp_flows: 0
+
+  Próbka [1185] (2 próbek przed pocz¹tkiem ataku, -20s):
+    Timestamp: 2025-10-17 15:46:36
+    Attack: 0
+    SYN flag: 0
+    total_flows_10s: 44
+    no_of_total_flows: 4
+    table_active_count_mean: 2.00
+    flow_packet_count_mean: 128349.25
+    no_of_tcp_flows: 0
+
+  Próbka [1186] (1 próbek przed pocz¹tkiem ataku, -10s):
+    Timestamp: 2025-10-17 15:46:37
+    Attack: 0
+    SYN flag: 0
+    total_flows_10s: 44
+    no_of_total_flows: 4
+    table_active_count_mean: 2.00
+    flow_packet_count_mean: 128349.75
+    no_of_tcp_flows: 0
+
+  --- PIERWSZA PRÓBKA ATAKU ---
+
+  Próbka [1187] (pocz¹tek ataku):
+    Timestamp: 2025-10-17 15:46:38
+    Attack: 1
+    total_flows_10s: 42
+    no_of_total_flows: 4
+    table_active_count_mean: 2.00
+    flow_packet_count_mean: 128350.25
+    no_of_tcp_flows: 0
+
+  --- OSTATNIA PRÓBKA ATAKU ---
+
+  Próbka [1261] (koniec ataku):
+    Timestamp: 2025-10-17 15:48:22
+    Attack: 1
+    total_flows_10s: 3021
+    no_of_total_flows: 220
+    table_active_count_mean: 110.50
+    flow_packet_count_mean: 2490.93
+    no_of_tcp_flows: 218
+
+  --- PRÓBKI PO ATAKU (HIPOTEZA IDLE_TIMEOUT) ---
+
+  Próbka [1262] (1 próbek po koñcu ataku, +10s):
+    Timestamp: 2025-10-17 15:48:23
+    Attack: 0
+    SYN flag: 0
+    total_flows_10s: 3604
+    no_of_total_flows: 745
+    table_active_count_mean: 372.50
+    flow_packet_count_mean: 3287.67
+    no_of_tcp_flows: 743
+    [!] UWAGA: Wysoka wartosc total_flows_10s po zakonczeniu ataku!
+    [!] UWAGA: Wysoka wartosc table_active_count_mean - mozliwy efekt idle_timeout!
+    [!] UWAGA: Wysoka liczba przeplywow TCP po zakonczeniu ataku SYN!
+
+  Próbka [1263] (2 próbek po koñcu ataku, +20s):
+    Timestamp: 2025-10-17 15:48:24
+    Attack: 0
+    SYN flag: 0
+    total_flows_10s: 4672
+    no_of_total_flows: 1140
+    table_active_count_mean: 329.50
+    flow_packet_count_mean: 482.49
+    no_of_tcp_flows: 1138
+    [!] UWAGA: Wysoka wartosc total_flows_10s po zakonczeniu ataku!
+    [!] UWAGA: Wysoka wartosc table_active_count_mean - mozliwy efekt idle_timeout!
+    [!] UWAGA: Wysoka liczba przeplywow TCP po zakonczeniu ataku SYN!
+
+  Próbka [1264] (3 próbek po koñcu ataku, +30s):
+    Timestamp: 2025-10-17 15:48:25
+    Attack: 0
+    SYN flag: 0
+    total_flows_10s: 5739
+    no_of_total_flows: 1067
+    table_active_count_mean: 387.25
+    flow_packet_count_mean: 1030.67
+    no_of_tcp_flows: 1063
+    [!] UWAGA: Wysoka wartosc total_flows_10s po zakonczeniu ataku!
+    [!] UWAGA: Wysoka wartosc table_active_count_mean - mozliwy efekt idle_timeout!
+    [!] UWAGA: Wysoka liczba przeplywow TCP po zakonczeniu ataku SYN!
+
+============================================================
+ATAK SYN #5:
+============================================================
+  Indeksy: 1317 - 1393 (d³ugoœæ: 77 próbek = 770 sekund)
+  Timestamp start: 2025-10-17 15:49:21
+  Timestamp end: 2025-10-17 15:50:52
+
+  --- PRÓBKI PRZED ATAKIEM ---
+
+  Próbka [1314] (3 próbek przed pocz¹tkiem ataku, -30s):
+    Timestamp: 2025-10-17 15:49:18
+    Attack: 0
+    SYN flag: 0
+    total_flows_10s: 78
+    no_of_total_flows: 6
+    table_active_count_mean: 1.50
+    flow_packet_count_mean: 509422.50
+    no_of_tcp_flows: 0
+
+  Próbka [1315] (2 próbek przed pocz¹tkiem ataku, -20s):
+    Timestamp: 2025-10-17 15:49:19
+    Attack: 0
+    SYN flag: 0
+    total_flows_10s: 76
+    no_of_total_flows: 6
+    table_active_count_mean: 1.50
+    flow_packet_count_mean: 509620.33
+    no_of_tcp_flows: 0
+
+  Próbka [1316] (1 próbek przed pocz¹tkiem ataku, -10s):
+    Timestamp: 2025-10-17 15:49:20
+    Attack: 0
+    SYN flag: 0
+    total_flows_10s: 72
+    no_of_total_flows: 6
+    table_active_count_mean: 1.50
+    flow_packet_count_mean: 509809.00
+    no_of_tcp_flows: 0
+
+  --- PIERWSZA PRÓBKA ATAKU ---
+
+  Próbka [1317] (pocz¹tek ataku):
+    Timestamp: 2025-10-17 15:49:21
+    Attack: 1
+    total_flows_10s: 68
+    no_of_total_flows: 6
+    table_active_count_mean: 1.50
+    flow_packet_count_mean: 510119.50
+    no_of_tcp_flows: 0
+
+  --- OSTATNIA PRÓBKA ATAKU ---
+
+  Próbka [1393] (koniec ataku):
+    Timestamp: 2025-10-17 15:50:52
+    Attack: 1
+    total_flows_10s: 4579
+    no_of_total_flows: 434
+    table_active_count_mean: 108.50
+    flow_packet_count_mean: 2666.51
+    no_of_tcp_flows: 429
+
+  --- PRÓBKI PO ATAKU (HIPOTEZA IDLE_TIMEOUT) ---
+
+  Próbka [1394] (1 próbek po koñcu ataku, +10s):
+    Timestamp: 2025-10-17 15:50:53
+    Attack: 0
+    SYN flag: 0
+    total_flows_10s: 5852
+    no_of_total_flows: 1658
+    table_active_count_mean: 204.67
+    flow_packet_count_mean: 2702.59
+    no_of_tcp_flows: 1648
+    [!] UWAGA: Wysoka wartosc total_flows_10s po zakonczeniu ataku!
+    [!] UWAGA: Wysoka wartosc table_active_count_mean - mozliwy efekt idle_timeout!
+    [!] UWAGA: Wysoka liczba przeplywow TCP po zakonczeniu ataku SYN!
+
+  Próbka [1395] (2 próbek po koñcu ataku, +20s):
+    Timestamp: 2025-10-17 15:50:54
+    Attack: 0
+    SYN flag: 0
+    total_flows_10s: 5672
+    no_of_total_flows: 402
+    table_active_count_mean: 208.00
+    flow_packet_count_mean: 1439.46
+    no_of_tcp_flows: 400
+    [!] UWAGA: Wysoka wartosc total_flows_10s po zakonczeniu ataku!
+    [!] UWAGA: Wysoka wartosc table_active_count_mean - mozliwy efekt idle_timeout!
+    [!] UWAGA: Wysoka liczba przeplywow TCP po zakonczeniu ataku SYN!
+
+  Próbka [1396] (3 próbek po koñcu ataku, +30s):
+    Timestamp: 2025-10-17 15:50:57
+    Attack: 0
+    SYN flag: 0
+    total_flows_10s: 5600
+    no_of_total_flows: 1713
+    table_active_count_mean: 214.25
+    flow_packet_count_mean: 2624.24
+    no_of_tcp_flows: 1705
+    [!] UWAGA: Wysoka wartosc total_flows_10s po zakonczeniu ataku!
+    [!] UWAGA: Wysoka wartosc table_active_count_mean - mozliwy efekt idle_timeout!
+    [!] UWAGA: Wysoka liczba przeplywow TCP po zakonczeniu ataku SYN!
+
+============================================================
+ATAK SYN #6:
+============================================================
+  Indeksy: 2046 - 2101 (d³ugoœæ: 56 próbek = 560 sekund)
+  Timestamp start: 2025-10-17 16:02:10
+  Timestamp end: 2025-10-17 16:03:17
+
+  --- PRÓBKI PRZED ATAKIEM ---
+
+  Próbka [2043] (3 próbek przed pocz¹tkiem ataku, -30s):
+    Timestamp: 2025-10-17 16:02:07
+    Attack: 1
+    SYN flag: 0
+    total_flows_10s: 5027
+    no_of_total_flows: 448
+    table_active_count_mean: 240.00
+    flow_packet_count_mean: 9185.00
+    no_of_tcp_flows: 0
+
+  Próbka [2044] (2 próbek przed pocz¹tkiem ataku, -20s):
+    Timestamp: 2025-10-17 16:02:08
+    Attack: 1
+    SYN flag: 0
+    total_flows_10s: 5910
+    no_of_total_flows: 1135
+    table_active_count_mean: 284.00
+    flow_packet_count_mean: 3631.76
+    no_of_tcp_flows: 0
+
+  Próbka [2045] (1 próbek przed pocz¹tkiem ataku, -10s):
+    Timestamp: 2025-10-17 16:02:09
+    Attack: 1
+    SYN flag: 0
+    total_flows_10s: 6036
+    no_of_total_flows: 658
+    table_active_count_mean: 164.50
+    flow_packet_count_mean: 2050.64
+    no_of_tcp_flows: 0
+
+  --- PIERWSZA PRÓBKA ATAKU ---
+
+  Próbka [2046] (pocz¹tek ataku):
+    Timestamp: 2025-10-17 16:02:10
+    Attack: 1
+    total_flows_10s: 6407
+    no_of_total_flows: 780
+    table_active_count_mean: 195.00
+    flow_packet_count_mean: 5293.77
+    no_of_tcp_flows: 0
+
+  --- OSTATNIA PRÓBKA ATAKU ---
+
+  Próbka [2101] (koniec ataku):
+    Timestamp: 2025-10-17 16:03:17
+    Attack: 1
+    total_flows_10s: 2595
+    no_of_total_flows: 572
+    table_active_count_mean: 143.00
+    flow_packet_count_mean: 7570.23
+    no_of_tcp_flows: 568
+
+  --- PRÓBKI PO ATAKU (HIPOTEZA IDLE_TIMEOUT) ---
+
+  Próbka [2102] (1 próbek po koñcu ataku, +10s):
+    Timestamp: 2025-10-17 16:03:19
+    Attack: 1
+    SYN flag: 0
+    total_flows_10s: 2816
+    no_of_total_flows: 921
+    table_active_count_mean: 220.00
+    flow_packet_count_mean: 750.53
+    no_of_tcp_flows: 919
+    [!] UWAGA: Wysoka wartosc total_flows_10s po zakonczeniu ataku!
+    [!] UWAGA: Wysoka wartosc table_active_count_mean - mozliwy efekt idle_timeout!
+    [!] UWAGA: Wysoka liczba przeplywow TCP po zakonczeniu ataku SYN!
+
+  Próbka [2103] (2 próbek po koñcu ataku, +20s):
+    Timestamp: 2025-10-17 16:03:20
+    Attack: 1
+    SYN flag: 0
+    total_flows_10s: 3028
+    no_of_total_flows: 705
+    table_active_count_mean: 197.67
+    flow_packet_count_mean: 7130.00
+    no_of_tcp_flows: 699
+    [!] UWAGA: Wysoka wartosc total_flows_10s po zakonczeniu ataku!
+    [!] UWAGA: Wysoka wartosc table_active_count_mean - mozliwy efekt idle_timeout!
+    [!] UWAGA: Wysoka liczba przeplywow TCP po zakonczeniu ataku SYN!
+
+  Próbka [2104] (3 próbek po koñcu ataku, +30s):
+    Timestamp: 2025-10-17 16:03:21
+    Attack: 1
+    SYN flag: 0
+    total_flows_10s: 2973
+    no_of_total_flows: 729
+    table_active_count_mean: 62.25
+    flow_packet_count_mean: 5963.08
+    no_of_tcp_flows: 725
+    [!] UWAGA: Wysoka wartosc total_flows_10s po zakonczeniu ataku!
+    [!] UWAGA: Wysoka liczba przeplywow TCP po zakonczeniu ataku SYN!
+
+============================================================
+ATAK SYN #7:
+============================================================
+  Indeksy: 2181 - 2285 (d³ugoœæ: 105 próbek = 1050 sekund)
+  Timestamp start: 2025-10-17 16:04:49
+  Timestamp end: 2025-10-17 16:06:55
+
+  --- PRÓBKI PRZED ATAKIEM ---
+
+  Próbka [2178] (3 próbek przed pocz¹tkiem ataku, -30s):
+    Timestamp: 2025-10-17 16:04:46
+    Attack: 1
+    SYN flag: 0
+    total_flows_10s: 844
+    no_of_total_flows: 8
+    table_active_count_mean: 2.00
+    flow_packet_count_mean: 590053.88
+    no_of_tcp_flows: 0
+
+  Próbka [2179] (2 próbek przed pocz¹tkiem ataku, -20s):
+    Timestamp: 2025-10-17 16:04:47
+    Attack: 1
+    SYN flag: 0
+    total_flows_10s: 852
+    no_of_total_flows: 8
+    table_active_count_mean: 2.00
+    flow_packet_count_mean: 590768.75
+    no_of_tcp_flows: 0
+
+  Próbka [2180] (1 próbek przed pocz¹tkiem ataku, -10s):
+    Timestamp: 2025-10-17 16:04:48
+    Attack: 1
+    SYN flag: 0
+    total_flows_10s: 252
+    no_of_total_flows: 8
+    table_active_count_mean: 2.00
+    flow_packet_count_mean: 591251.62
+    no_of_tcp_flows: 0
+
+  --- PIERWSZA PRÓBKA ATAKU ---
+
+  Próbka [2181] (pocz¹tek ataku):
+    Timestamp: 2025-10-17 16:04:49
+    Attack: 1
+    total_flows_10s: 254
+    no_of_total_flows: 12
+    table_active_count_mean: 3.00
+    flow_packet_count_mean: 394505.17
+    no_of_tcp_flows: 0
+
+  --- OSTATNIA PRÓBKA ATAKU ---
+
+  Próbka [2285] (koniec ataku):
+    Timestamp: 2025-10-17 16:06:55
+    Attack: 1
+    total_flows_10s: 24060
+    no_of_total_flows: 923
+    table_active_count_mean: 230.75
+    flow_packet_count_mean: 1633.94
+    no_of_tcp_flows: 919
+
+  --- PRÓBKI PO ATAKU (HIPOTEZA IDLE_TIMEOUT) ---
+
+  Próbka [2286] (1 próbek po koñcu ataku, +10s):
+    Timestamp: 2025-10-17 16:06:57
+    Attack: 1
+    SYN flag: 0
+    total_flows_10s: 15374
+    no_of_total_flows: 707
+    table_active_count_mean: 176.75
+    flow_packet_count_mean: 2135.12
+    no_of_tcp_flows: 703
+    [!] UWAGA: Wysoka wartosc total_flows_10s po zakonczeniu ataku!
+    [!] UWAGA: Wysoka wartosc table_active_count_mean - mozliwy efekt idle_timeout!
+    [!] UWAGA: Wysoka liczba przeplywow TCP po zakonczeniu ataku SYN!
+
+  Próbka [2287] (2 próbek po koñcu ataku, +20s):
+    Timestamp: 2025-10-17 16:06:58
+    Attack: 1
+    SYN flag: 0
+    total_flows_10s: 7872
+    no_of_total_flows: 425
+    table_active_count_mean: 212.50
+    flow_packet_count_mean: 1775.90
+    no_of_tcp_flows: 423
+    [!] UWAGA: Wysoka wartosc total_flows_10s po zakonczeniu ataku!
+    [!] UWAGA: Wysoka wartosc table_active_count_mean - mozliwy efekt idle_timeout!
+    [!] UWAGA: Wysoka liczba przeplywow TCP po zakonczeniu ataku SYN!
+
+  Próbka [2288] (3 próbek po koñcu ataku, +30s):
+    Timestamp: 2025-10-17 16:06:59
+    Attack: 1
+    SYN flag: 0
+    total_flows_10s: 3876
+    no_of_total_flows: 98
+    table_active_count_mean: 49.00
+    flow_packet_count_mean: 7699.12
+    no_of_tcp_flows: 96
+    [!] UWAGA: Wysoka wartosc total_flows_10s po zakonczeniu ataku!
+    [!] UWAGA: Wysoka liczba przeplywow TCP po zakonczeniu ataku SYN!
+
+============================================================
+ATAK SYN #8:
+============================================================
+  Indeksy: 2496 - 2549 (d³ugoœæ: 54 próbek = 540 sekund)
+  Timestamp start: 2025-10-17 16:10:35
+  Timestamp end: 2025-10-17 16:11:38
+
+  --- PRÓBKI PRZED ATAKIEM ---
+
+  Próbka [2493] (3 próbek przed pocz¹tkiem ataku, -30s):
+    Timestamp: 2025-10-17 16:10:32
+    Attack: 0
+    SYN flag: 0
+    total_flows_10s: 86
+    no_of_total_flows: 6
+    table_active_count_mean: 1.50
+    flow_packet_count_mean: 888095.17
+    no_of_tcp_flows: 0
+
+  Próbka [2494] (2 próbek przed pocz¹tkiem ataku, -20s):
+    Timestamp: 2025-10-17 16:10:33
+    Attack: 0
+    SYN flag: 0
+    total_flows_10s: 86
+    no_of_total_flows: 6
+    table_active_count_mean: 1.50
+    flow_packet_count_mean: 888340.50
+    no_of_tcp_flows: 0
+
+  Próbka [2495] (1 próbek przed pocz¹tkiem ataku, -10s):
+    Timestamp: 2025-10-17 16:10:34
+    Attack: 0
+    SYN flag: 0
+    total_flows_10s: 86
+    no_of_total_flows: 6
+    table_active_count_mean: 1.50
+    flow_packet_count_mean: 888574.00
+    no_of_tcp_flows: 0
+
+  --- PIERWSZA PRÓBKA ATAKU ---
+
+  Próbka [2496] (pocz¹tek ataku):
+    Timestamp: 2025-10-17 16:10:35
+    Attack: 1
+    total_flows_10s: 76
+    no_of_total_flows: 6
+    table_active_count_mean: 1.50
+    flow_packet_count_mean: 888827.17
+    no_of_tcp_flows: 0
+
+  --- OSTATNIA PRÓBKA ATAKU ---
+
+  Próbka [2549] (koniec ataku):
+    Timestamp: 2025-10-17 16:11:38
+    Attack: 1
+    total_flows_10s: 13031
+    no_of_total_flows: 2
+    table_active_count_mean: 1.00
+    flow_packet_count_mean: 406164.00
+    no_of_tcp_flows: 0
+
+  --- PRÓBKI PO ATAKU (HIPOTEZA IDLE_TIMEOUT) ---
+
+  Próbka [2550] (1 próbek po koñcu ataku, +10s):
+    Timestamp: 2025-10-17 16:11:40
+    Attack: 0
+    SYN flag: 0
+    total_flows_10s: 13402
+    no_of_total_flows: 1697
+    table_active_count_mean: 283.17
+    flow_packet_count_mean: 1439.44
+    no_of_tcp_flows: 1691
+    [!] UWAGA: Wysoka wartosc total_flows_10s po zakonczeniu ataku!
+    [!] UWAGA: Wysoka wartosc table_active_count_mean - mozliwy efekt idle_timeout!
+    [!] UWAGA: Wysoka liczba przeplywow TCP po zakonczeniu ataku SYN!
+
+  Próbka [2551] (2 próbek po koñcu ataku, +20s):
+    Timestamp: 2025-10-17 16:11:41
+    Attack: 0
+    SYN flag: 0
+    total_flows_10s: 12967
+    no_of_total_flows: 951
+    table_active_count_mean: 475.50
+    flow_packet_count_mean: 856.03
+    no_of_tcp_flows: 949
+    [!] UWAGA: Wysoka wartosc total_flows_10s po zakonczeniu ataku!
+    [!] UWAGA: Wysoka wartosc table_active_count_mean - mozliwy efekt idle_timeout!
+    [!] UWAGA: Wysoka liczba przeplywow TCP po zakonczeniu ataku SYN!
+
+  Próbka [2552] (3 próbek po koñcu ataku, +30s):
+    Timestamp: 2025-10-17 16:11:42
+    Attack: 0
+    SYN flag: 0
+    total_flows_10s: 12520
+    no_of_total_flows: 771
+    table_active_count_mean: 96.50
+    flow_packet_count_mean: 14365.35
+    no_of_tcp_flows: 763
+    [!] UWAGA: Wysoka wartosc total_flows_10s po zakonczeniu ataku!
+    [!] UWAGA: Wysoka liczba przeplywow TCP po zakonczeniu ataku SYN!
+
+============================================================
+ATAK SYN #9:
+============================================================
+  Indeksy: 2611 - 2679 (d³ugoœæ: 69 próbek = 690 sekund)
+  Timestamp start: 2025-10-17 16:12:42
+  Timestamp end: 2025-10-17 16:14:14
+
+  --- PRÓBKI PRZED ATAKIEM ---
+
+  Próbka [2608] (3 próbek przed pocz¹tkiem ataku, -30s):
+    Timestamp: 2025-10-17 16:12:39
+    Attack: 0
+    SYN flag: 0
+    total_flows_10s: 367
+    no_of_total_flows: 30
+    table_active_count_mean: 7.50
+    flow_packet_count_mean: 185556.37
+    no_of_tcp_flows: 26
+
+  Próbka [2609] (2 próbek przed pocz¹tkiem ataku, -20s):
+    Timestamp: 2025-10-17 16:12:40
+    Attack: 0
+    SYN flag: 0
+    total_flows_10s: 387
+    no_of_total_flows: 48
+    table_active_count_mean: 12.00
+    flow_packet_count_mean: 115974.40
+    no_of_tcp_flows: 44
+
+  Próbka [2610] (1 próbek przed pocz¹tkiem ataku, -10s):
+    Timestamp: 2025-10-17 16:12:41
+    Attack: 0
+    SYN flag: 0
+    total_flows_10s: 406
+    no_of_total_flows: 62
+    table_active_count_mean: 15.50
+    flow_packet_count_mean: 89788.18
+    no_of_tcp_flows: 58
+
+  --- PIERWSZA PRÓBKA ATAKU ---
+
+  Próbka [2611] (pocz¹tek ataku):
+    Timestamp: 2025-10-17 16:12:42
+    Attack: 1
+    total_flows_10s: 415
+    no_of_total_flows: 67
+    table_active_count_mean: 16.75
+    flow_packet_count_mean: 83088.39
+    no_of_tcp_flows: 63
+
+  --- OSTATNIA PRÓBKA ATAKU ---
+
+  Próbka [2679] (koniec ataku):
+    Timestamp: 2025-10-17 16:14:14
+    Attack: 1
+    total_flows_10s: 4241
+    no_of_total_flows: 249
+    table_active_count_mean: 124.50
+    flow_packet_count_mean: 3387.03
+    no_of_tcp_flows: 247
+
+  --- PRÓBKI PO ATAKU (HIPOTEZA IDLE_TIMEOUT) ---
+
+  Próbka [2680] (1 próbek po koñcu ataku, +10s):
+    Timestamp: 2025-10-17 16:14:16
+    Attack: 0
+    SYN flag: 0
+    total_flows_10s: 3426
+    no_of_total_flows: 196
+    table_active_count_mean: 98.00
+    flow_packet_count_mean: 4306.98
+    no_of_tcp_flows: 194
+    [!] UWAGA: Wysoka wartosc total_flows_10s po zakonczeniu ataku!
+    [!] UWAGA: Wysoka liczba przeplywow TCP po zakonczeniu ataku SYN!
+
+  Próbka [2681] (2 próbek po koñcu ataku, +20s):
+    Timestamp: 2025-10-17 16:14:17
+    Attack: 0
+    SYN flag: 0
+    total_flows_10s: 3250
+    no_of_total_flows: 397
+    table_active_count_mean: 198.50
+    flow_packet_count_mean: 2128.53
+    no_of_tcp_flows: 395
+    [!] UWAGA: Wysoka wartosc total_flows_10s po zakonczeniu ataku!
+    [!] UWAGA: Wysoka wartosc table_active_count_mean - mozliwy efekt idle_timeout!
+    [!] UWAGA: Wysoka liczba przeplywow TCP po zakonczeniu ataku SYN!
+
+  Próbka [2682] (3 próbek po koñcu ataku, +30s):
+    Timestamp: 2025-10-17 16:14:18
+    Attack: 0
+    SYN flag: 0
+    total_flows_10s: 4167
+    no_of_total_flows: 1274
+    table_active_count_mean: 318.50
+    flow_packet_count_mean: 1327.40
+    no_of_tcp_flows: 1270
+    [!] UWAGA: Wysoka wartosc total_flows_10s po zakonczeniu ataku!
+    [!] UWAGA: Wysoka wartosc table_active_count_mean - mozliwy efekt idle_timeout!
+    [!] UWAGA: Wysoka liczba przeplywow TCP po zakonczeniu ataku SYN!
+
+============================================================
+ATAK SYN #10:
+============================================================
+  Indeksy: 2804 - 2905 (d³ugoœæ: 102 próbek = 1020 sekund)
+  Timestamp start: 2025-10-17 16:16:21
+  Timestamp end: 2025-10-17 16:18:26
+
+  --- PRÓBKI PRZED ATAKIEM ---
+
+  Próbka [2801] (3 próbek przed pocz¹tkiem ataku, -30s):
+    Timestamp: 2025-10-17 16:16:18
+    Attack: 0
+    SYN flag: 0
+    total_flows_10s: 38
+    no_of_total_flows: 4
+    table_active_count_mean: 2.00
+    flow_packet_count_mean: 211831.00
+    no_of_tcp_flows: 2
+
+  Próbka [2802] (2 próbek przed pocz¹tkiem ataku, -20s):
+    Timestamp: 2025-10-17 16:16:19
+    Attack: 0
+    SYN flag: 0
+    total_flows_10s: 38
+    no_of_total_flows: 4
+    table_active_count_mean: 2.00
+    flow_packet_count_mean: 211831.50
+    no_of_tcp_flows: 2
+
+  Próbka [2803] (1 próbek przed pocz¹tkiem ataku, -10s):
+    Timestamp: 2025-10-17 16:16:20
+    Attack: 0
+    SYN flag: 0
+    total_flows_10s: 39
+    no_of_total_flows: 4
+    table_active_count_mean: 2.00
+    flow_packet_count_mean: 211832.00
+    no_of_tcp_flows: 2
+
+  --- PIERWSZA PRÓBKA ATAKU ---
+
+  Próbka [2804] (pocz¹tek ataku):
+    Timestamp: 2025-10-17 16:16:21
+    Attack: 1
+    total_flows_10s: 39
+    no_of_total_flows: 3
+    table_active_count_mean: 1.50
+    flow_packet_count_mean: 282442.33
+    no_of_tcp_flows: 1
+
+  --- OSTATNIA PRÓBKA ATAKU ---
+
+  Próbka [2905] (koniec ataku):
+    Timestamp: 2025-10-17 16:18:26
+    Attack: 1
+    total_flows_10s: 3643
+    no_of_total_flows: 793
+    table_active_count_mean: 198.25
+    flow_packet_count_mean: 2245.15
+    no_of_tcp_flows: 789
+
+  --- PRÓBKI PO ATAKU (HIPOTEZA IDLE_TIMEOUT) ---
+
+  Próbka [2906] (1 próbek po koñcu ataku, +10s):
+    Timestamp: 2025-10-17 16:18:27
+    Attack: 0
+    SYN flag: 0
+    total_flows_10s: 3710
+    no_of_total_flows: 517
+    table_active_count_mean: 259.00
+    flow_packet_count_mean: 1723.23
+    no_of_tcp_flows: 515
+    [!] UWAGA: Wysoka wartosc total_flows_10s po zakonczeniu ataku!
+    [!] UWAGA: Wysoka wartosc table_active_count_mean - mozliwy efekt idle_timeout!
+    [!] UWAGA: Wysoka liczba przeplywow TCP po zakonczeniu ataku SYN!
+
+  Próbka [2907] (2 próbek po koñcu ataku, +20s):
+    Timestamp: 2025-10-17 16:18:28
+    Attack: 0
+    SYN flag: 0
+    total_flows_10s: 3662
+    no_of_total_flows: 302
+    table_active_count_mean: 151.00
+    flow_packet_count_mean: 2950.14
+    no_of_tcp_flows: 300
+    [!] UWAGA: Wysoka wartosc total_flows_10s po zakonczeniu ataku!
+    [!] UWAGA: Wysoka wartosc table_active_count_mean - mozliwy efekt idle_timeout!
+    [!] UWAGA: Wysoka liczba przeplywow TCP po zakonczeniu ataku SYN!
+
+  Próbka [2908] (3 próbek po koñcu ataku, +30s):
+    Timestamp: 2025-10-17 16:18:30
+    Attack: 0
+    SYN flag: 0
+    total_flows_10s: 3343
+    no_of_total_flows: 347
+    table_active_count_mean: 173.50
+    flow_packet_count_mean: 2569.49
+    no_of_tcp_flows: 345
+    [!] UWAGA: Wysoka wartosc total_flows_10s po zakonczeniu ataku!
+    [!] UWAGA: Wysoka wartosc table_active_count_mean - mozliwy efekt idle_timeout!
+    [!] UWAGA: Wysoka liczba przeplywow TCP po zakonczeniu ataku SYN!
+
+============================================================
+KONIEC ANALIZY
+============================================================

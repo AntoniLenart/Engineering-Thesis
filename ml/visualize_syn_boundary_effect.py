@@ -78,19 +78,18 @@ fig.suptitle(f'Idle Timeout Effect (2s) on Metrics After SYN Attack Termination\
 legend_elements = [
     mpatches.Patch(color='green', alpha=0.2, label='Normal (before attack)'),
     mpatches.Patch(color='red', alpha=0.3, label='SYN Attack'),
-    mpatches.Patch(color='orange', alpha=0.3, label='Post +10-30s (labeled ATTACK)'),
-    mpatches.Patch(color='yellow', alpha=0.3, label='Post +10-30s (NORMAL) ← FALSE POSITIVE'),
-    mpatches.Patch(color='lightyellow', alpha=0.25, label='Transition +40-70s (early)'),
-    mpatches.Patch(color='lightblue', alpha=0.15, label='Transition +80-120s (late)'),
-    mpatches.Patch(color='green', alpha=0.1, label='Normalized +130s+')
+    mpatches.Patch(color='yellow', alpha=0.3, label='Post +1-3s (NORMAL) ← FALSE POSITIVE'),
+    mpatches.Patch(color='lightyellow', alpha=0.25, label='Transition +4-7s (early)'),
+    mpatches.Patch(color='lightblue', alpha=0.15, label='Transition +8-12s (late)'),
+    mpatches.Patch(color='green', alpha=0.1, label='Normalized +13s+')
 ]
 
 fig.legend(handles=legend_elements, loc='lower center', ncol=3,
            fontsize=7, bbox_to_anchor=(0.5, -0.015))
 
 plt.tight_layout(rect=[0, 0.03, 1, 0.96])
-plt.savefig('syn_idle_timeout_boundary_effect.png', dpi=300, bbox_inches='tight')
-print("Wykres zapisany: syn_idle_timeout_boundary_effect.png")
+plt.savefig('syn_idle_timeout_boundary_effect_fixed.png', dpi=300, bbox_inches='tight')
+print("Wykres zapisany: syn_idle_timeout_boundary_effect_fixed.png")
 
 fig2, axes2 = plt.subplots(2, 2, figsize=(14, 10))
 
@@ -168,4 +167,4 @@ fig2.suptitle('Post-Attack Sample Analysis for SYN Attacks\nIdle Timeout (2s) Im
               fontsize=14, fontweight='bold')
 
 plt.tight_layout()
-plt.savefig('syn_post_attack_statistics.png', dpi=300, bbox_inches='tight')
+plt.savefig('syn_post_attack_statistics_fixed.png', dpi=300, bbox_inches='tight')
